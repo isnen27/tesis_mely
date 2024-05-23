@@ -10,6 +10,8 @@ import json
 
 # for data prepocessing
 import string
+import nltk
+nltk.download('stopwords')
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist
