@@ -11,7 +11,6 @@ import json
 # for data prepocessing
 import string
 import nltk
-nltk.download('stopwords')
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist
@@ -106,6 +105,7 @@ def main(df):
             title = st.sidebar.text_input("Plot Title", "KDE Plot")
             plot_kde(df, column1, column2, xlabel, ylabel, title, color1, color2)
     if menu == "Data Prepocessing" :
+       nltk.download('stopwords')
        # Load stopwords
        list_stopwords = set(stopwords.words('indonesian'))
        # Load additional stopwords
