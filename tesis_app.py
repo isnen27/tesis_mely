@@ -17,6 +17,7 @@ from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist
 from nltk.corpus import stopwords
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+from nltk import punkt
 
 # for providing path
 import os
@@ -62,6 +63,8 @@ def load_data3():
     df3 = pd.read_csv('output_stemmed_with_8_labels.csv')
     return df3
 df3 = load_data3()
+
+nltk.download('punkt')
 
 def main(df):
     # Main Page Design
