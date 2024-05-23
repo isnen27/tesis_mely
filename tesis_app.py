@@ -72,6 +72,11 @@ def load_data3():
 df3 = load_data3()
 
 def main(df):
+    # Ensure stopwords are downloaded
+    try:
+        _ = stopwords.words('indonesian')
+    except LookupError:
+        download_nltk_stopwords()
     # Main Page Design
     st.title(':mailbox_with_mail: :blue[TESIS]')
     st.header('_:blue[Text Classification Model]_')
