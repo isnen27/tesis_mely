@@ -248,7 +248,7 @@ def main(df):
            tokens = [lemmatizer.lemmatize(word) for word in tokens]  # Lemmatization
            return tokens
        # Initialize variables
-       stop_words = set(stopwords.words('indonesian'))
+       stop_words = set(list_stopwords)
        lemmatizer = WordNetLemmatizer()
        topics_per_cluster = {}
        
