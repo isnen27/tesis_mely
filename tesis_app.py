@@ -12,12 +12,13 @@ import sys
 # for data prepocessing
 import string
 import nltk
+from nltk.data import find
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist
 from nltk.corpus import stopwords
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
-from nltk import punkt
+from nltk.stem import PorterStemmer
 
 # for providing path
 import os
@@ -63,6 +64,12 @@ def load_data3():
     df3 = pd.read_csv('output_stemmed_with_8_labels.csv')
     return df3
 df3 = load_data3()
+
+nltk.data.path.append('./nltk_data')
+try:
+    find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt', download_dir='./nltk_data')
 
 def main(df):
     # Main Page Design
