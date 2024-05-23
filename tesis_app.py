@@ -66,8 +66,6 @@ def load_data3():
     return df3
 df3 = load_data3()
 
-
-
 nltk.data.path.append('./nltk_data')
 try:
     find('tokenizers/punkt')
