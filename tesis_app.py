@@ -64,8 +64,6 @@ def load_data3():
     return df3
 df3 = load_data3()
 
-nltk.download('punkt')
-
 def main(df):
     # Main Page Design
     st.title(':mailbox_with_mail: :blue[TESIS]')
