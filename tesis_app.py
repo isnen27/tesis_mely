@@ -4,7 +4,6 @@ import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
 import io
-from io import StringIO
 import matplotlib.pyplot as plt
 import seaborn as sns
 import json
@@ -46,16 +45,6 @@ from gensim.models import CoherenceModel
 #Extended file
 from function import describe_detail, plot_histogram, plot_kde, remove_tweet_special, remove_number, remove_punctuation, remove_whitespace_LT, remove_whitespace_multiple, remove_single_char, word_tokenize_wrapper, freqDist_wrapper, stopwords_removal, normalized_term, remove_punct, stemmed_wrapper, get_stemmed_term, elbow_method, silhouette_method, k_means, get_top_features_cluster, plotWords, euclidean_distance, calculate_centroid, calculate_s_within, calculate_s_between,  calculate_dbi
 
-# Function to download NLTK stopwords silently
-def download_nltk_stopwords():
-    original_stdout = sys.stdout  # Save the original standard output
-    sys.stdout = open('/dev/null', 'w')  # Redirect stdout to null (no output)
-    try:
-        nltk.download('stopwords')
-    finally:
-        sys.stdout.close()
-        sys.stdout = original_stdout  # Reset stdout to original
-
 # Load dataset
 @st.cache_data
 def load_data():
@@ -75,11 +64,6 @@ def load_data3():
 df3 = load_data3()
 
 def main(df):
-# Ensure stopwords are downloaded
-    try:
-        _ = stopwords.words('indonesian')
-    except LookupError:
-        download_nltk_stopwords()
     # Main Page Design
     st.title(':mailbox_with_mail: :blue[TESIS]')
     st.header('_:blue[Text Classification Model]_')
