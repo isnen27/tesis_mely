@@ -72,6 +72,18 @@ try:
 except LookupError:
     nltk.download('punkt', download_dir='./nltk_data')
 
+# Load stopwords
+with open("indonesian.txt", "r") as f:
+     stopwords = f.read().splitlines()
+list_stopwords = set(stopwords)
+# Load additional stopwords
+additional_stopwords = ["yg", "dg", "rt", "dgn", "ny", "d", 'klo', 'kalo', 'amp', 'biar', 'bikin', 'bilang','gak', 'ga', 'krn', 'nya', 'nih', 'sih', 'si', 'tau', 'tdk', 'tuh', 'utk', 'ya','jd', 'jgn', 'sdh', 'aja', 'n', 't', 'nyg', 'hehe', 'pen', 'u', 'nan', 'loh', 'rt','&amp', 'yah', 'wkwk', 'ini', 'invensi', 'sehingga']
+list_stopwords.update(additional_stopwords)
+# Load additional stopwords from txt file
+with open("stopword.txt", "r") as f:
+     additional_stopwords_from_file = f.read().splitlines()
+list_stopwords.update(additional_stopwords_from_file)
+
 def main(df):
     # Main Page Design
     st.title(':mailbox_with_mail: :blue[TESIS]')
@@ -115,18 +127,6 @@ def main(df):
             title = st.sidebar.text_input("Plot Title", "KDE Plot")
             plot_kde(df, column1, column2, xlabel, ylabel, title, color1, color2)
     if menu == "Data Prepocessing" :
-       # Load stopwords
-       with open("indonesian.txt", "r") as f:
-           stopwords = f.read().splitlines()
-       list_stopwords = set(stopwords)
-       # Load additional stopwords
-       additional_stopwords = ["yg", "dg", "rt", "dgn", "ny", "d", 'klo', 'kalo', 'amp', 'biar', 'bikin', 'bilang','gak', 'ga', 'krn', 'nya', 'nih', 'sih', 'si', 'tau', 'tdk', 'tuh', 'utk', 'ya','jd', 'jgn', 'sdh', 'aja', 'n', 't', 'nyg', 'hehe', 'pen', 'u', 'nan', 'loh', 'rt','&amp', 'yah', 'wkwk', 'ini', 'invensi', 'sehingga']
-       list_stopwords.update(additional_stopwords)
-       # Load additional stopwords from txt file
-       with open("stopword.txt", "r") as f:
-           additional_stopwords_from_file = f.read().splitlines()
-       list_stopwords.update(additional_stopwords_from_file)
-        
        # Load normalization dictionary
        normalized_word = pd.read_excel("normalisasi-V1.xlsx")
        normalized_word_dict = dict(zip(normalized_word['slang'], normalized_word['formal']))
