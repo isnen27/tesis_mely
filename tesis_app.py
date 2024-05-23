@@ -71,6 +71,10 @@ try:
     find('tokenizers/punkt')
 except LookupError:
     nltk.download('punkt', download_dir='./nltk_data')
+try:
+    find('corpora/wordnet/')
+except LookupError:
+    nltk.download('wordnet', download_dir='./nltk_data')
 
 def main(df):
     # Main Page Design
