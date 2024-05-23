@@ -72,7 +72,7 @@ try:
 except LookupError:
     nltk.download('punkt', download_dir='./nltk_data')
 try:
-    find('corpora/wordnet/')
+    find('corpora/wordnet')
 except LookupError:
     nltk.download('wordnet', download_dir='./nltk_data')
 
