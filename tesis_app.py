@@ -44,6 +44,15 @@ from gensim.models import CoherenceModel
 #Extended file
 from function import describe_detail, plot_histogram, plot_kde, remove_tweet_special, remove_number, remove_punctuation, remove_whitespace_LT, remove_whitespace_multiple, remove_single_char, word_tokenize_wrapper, freqDist_wrapper, stopwords_removal, normalized_term, remove_punct, stemmed_wrapper, get_stemmed_term, elbow_method, silhouette_method, k_means, get_top_features_cluster, plotWords, euclidean_distance, calculate_centroid, calculate_s_within, calculate_s_between,  calculate_dbi
 
+def download_nltk_stopwords():
+    """Function to download nltk stopwords without printing to stdout."""
+    original_stdout = sys.stdout
+    sys.stdout = StringIO()  # Suppress output
+    try:
+        nltk.download('stopwords')
+    finally:
+        sys.stdout = original_stdout
+
 # Load dataset
 @st.cache_data
 def load_data():
@@ -105,7 +114,6 @@ def main(df):
             title = st.sidebar.text_input("Plot Title", "KDE Plot")
             plot_kde(df, column1, column2, xlabel, ylabel, title, color1, color2)
     if menu == "Data Prepocessing" :
-       nltk.download('stopwords')
        # Load stopwords
        list_stopwords = set(stopwords.words('indonesian'))
        # Load additional stopwords
