@@ -111,7 +111,7 @@ def main(df):
            stopwords = f.read().splitlines()
        list_stopwords = set(stopwords)
        # Load additional stopwords
-       additional_stopwords = ["yg", "dg", "rt", "dgn", "ny", "d", 'klo', 'kalo', 'amp', 'biar', 'bikin', 'bilang','gak', 'ga', 'krn', 'nya', 'nih', 'sih', 'si', 'tau', 'tdk', 'tuh', 'utk', 'ya','jd', 'jgn', 'sdh', 'aja', 'n', 't', 'nyg', 'hehe', 'pen', 'u', 'nan', 'loh', 'rt','&amp', 'yah', 'wkwk', 'ini', 'invensi', 'sehingga'])
+       additional_stopwords = ["yg", "dg", "rt", "dgn", "ny", "d", 'klo', 'kalo', 'amp', 'biar', 'bikin', 'bilang','gak', 'ga', 'krn', 'nya', 'nih', 'sih', 'si', 'tau', 'tdk', 'tuh', 'utk', 'ya','jd', 'jgn', 'sdh', 'aja', 'n', 't', 'nyg', 'hehe', 'pen', 'u', 'nan', 'loh', 'rt','&amp', 'yah', 'wkwk', 'ini', 'invensi', 'sehingga']
        list_stopwords.update(additional_stopwords)
        # Load additional stopwords from txt file
        with open("stopword.txt", "r") as f:
