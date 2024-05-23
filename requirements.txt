@@ -4,6 +4,7 @@ matplotlib-inline
 nltk
 numpy
 numpydoc
+openpyxl
 pandas
 pandocfilters
 Pillow
