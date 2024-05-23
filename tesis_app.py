@@ -107,10 +107,12 @@ def main(df):
             plot_kde(df, column1, column2, xlabel, ylabel, title, color1, color2)
     if menu == "Data Prepocessing" :
        # Load stopwords
-       list_stopwords = set(stopwords.words('indonesian'))
+       with open("indonesian.txt", "r") as f:
+           stopwords = f.read().splitlines()
+       list_stopwords = stopwords
        # Load additional stopwords
        list_stopwords.update(["yg", "dg", "rt", "dgn", "ny", "d", 'klo', 'kalo', 'amp', 'biar', 'bikin', 'bilang','gak', 'ga', 'krn', 'nya', 'nih', 'sih', 'si', 'tau', 'tdk', 'tuh', 'utk', 'ya','jd', 'jgn', 'sdh', 'aja', 'n', 't', 'nyg', 'hehe', 'pen', 'u', 'nan', 'loh', 'rt','&amp', 'yah', 'wkwk', 'ini', 'invensi', 'sehingga'])
-        # Load additional stopwords from txt file
+       # Load additional stopwords from txt file
        with open("stopword.txt", "r") as f:
            additional_stopwords = f.read().splitlines()
        list_stopwords.update(additional_stopwords)
