@@ -79,7 +79,7 @@ def main(df):
                                                      "Model Evaluation"])
     # Menu Functions
     st.set_option('deprecation.showPyplotGlobalUse', False)
-    if menu == "- - - - -" and menu2 == "- - - - -" :
+    if menu == "*****-----*****-----*****-----*****" and menu2 == "*****-----*****-----*****-----*****" :
        st.write('''TESIS is a data science project ...''')
     if menu == "Statistic Descriptive" :
        describe_detail(df)   
